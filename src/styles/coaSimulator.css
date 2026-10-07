@@ -1,0 +1,290 @@
+/* ==========================================================================
+   CPU INSTRUCTION SET SIMULATOR & COA EXTENSION STYLES
+   Full Light & Dark Theme Adaptability via Design Tokens
+   ========================================================================== */
+
+/* Top Level Mode Switcher Header */
+.coa-mode-switcher-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.coa-mode-pill-bar {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-surface);
+  padding: 0.35rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-md);
+  gap: 0.35rem;
+}
+
+.coa-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.coa-mode-btn:hover {
+  color: var(--text-primary);
+}
+
+.coa-mode-btn.active {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Simulator Section Shell */
+.coa-simulator-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.coa-sim-banner {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.coa-sim-repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  border: 1px solid var(--border-medium);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.coa-sim-repo-link:hover {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* Variable Inputs Grid */
+.coa-sim-vars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1.25rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.coa-sim-var-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.coa-sim-var-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.coa-sim-var-input {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.coa-sim-var-input:focus {
+  border-color: var(--border-focus);
+}
+
+/* 4 Architecture Cards Grid */
+.coa-sim-arch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .coa-sim-arch-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.coa-arch-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.coa-arch-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-focus);
+}
+
+.coa-arch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.coa-arch-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.coa-arch-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.coa-arch-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border: 1px solid var(--border-medium);
+}
+
+.coa-code-block {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  max-height: 180px;
+  overflow-y: auto;
+  line-height: 1.6;
+}
+
+.coa-code-block .line-num {
+  color: var(--text-muted);
+  margin-right: 0.75rem;
+  user-select: none;
+}
+
+.coa-sim-steps-wrap {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+  margin-top: auto;
+}
+
+.coa-sim-step-item {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.coa-sim-step-instr {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.coa-sim-step-res {
+  font-family: var(--font-mono);
+  color: var(--color-success);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.coa-sim-step-state {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.coa-arch-footer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.coa-arch-final {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent-warm-text);
+}
+
+/* Comparison Matrix */
+.coa-comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+.coa-comp-table th,
+.coa-comp-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.coa-comp-table th {
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.coa-comp-table td {
+  color: var(--text-secondary);
+}
+
+.coa-comp-table tr:hover td {
+  background: var(--bg-secondary);
+}

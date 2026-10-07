@@ -1,0 +1,122 @@
+/* ==========================================================================
+   PREMIUM DESIGN SYSTEM TOKENS (Editorial × Software Product × Engineering)
+   ========================================================================== */
+
+:root {
+  /* Warm Architectural Neutrals (Light Mode) */
+  --bg-primary: #f7f7f5;
+  --bg-surface: #ffffff;
+  --bg-secondary: #eeeeea;
+  --bg-tertiary: #e5e5df;
+  --bg-elevated: #ffffff;
+  
+  /* Text System */
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --text-muted: #767676;
+  --text-inverse: #f7f7f5;
+  
+  /* Precision Borders */
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-medium: rgba(0, 0, 0, 0.16);
+  --border-strong: rgba(0, 0, 0, 0.3);
+  --border-focus: #4f46e5;
+  
+  /* Primary Accent (Electric Indigo / Cobalt) */
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-active: #3730a3;
+  --accent-subtle: rgba(79, 70, 229, 0.08);
+  --accent-glow: rgba(79, 70, 229, 0.2);
+  --accent-text: #4f46e5;
+  
+  /* Secondary Accent (Warm Amber / Gold — Used Sparingly) */
+  --accent-warm: #d97706;
+  --accent-warm-subtle: rgba(217, 119, 6, 0.1);
+  --accent-warm-text: #b45309;
+  
+  /* Status Colors */
+  --color-success: #059669;
+  --color-success-bg: rgba(5, 150, 105, 0.1);
+  --color-error: #dc2626;
+  --color-error-bg: rgba(220, 38, 38, 0.1);
+  
+  /* Floating Capsule Nav */
+  --nav-bg: rgba(247, 247, 245, 0.85);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  
+  /* Elevation Shadows (Soft, wide-spread, low-opacity) */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
+  --shadow-float: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+  
+  /* Radius System (Moderate, intentional) */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Typography System */
+  --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  
+  /* Layout Constraints */
+  --container-max: 1280px;
+  --container-narrow: 860px;
+  --nav-height: 64px;
+  
+  /* Refined Transitions */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: 160ms var(--ease-editorial);
+  --transition-normal: 260ms var(--ease-editorial);
+  --transition-slow: 480ms var(--ease-editorial);
+}
+
+/* Deep Technical Dark Theme (Slate / Charcoal / Navy) */
+[data-theme="dark"] {
+  --bg-primary: #0a0d14;
+  --bg-surface: #121622;
+  --bg-secondary: #171d2c;
+  --bg-tertiary: #20283d;
+  --bg-elevated: #151b2a;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #0a0d14;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-strong: rgba(255, 255, 255, 0.3);
+  --border-focus: #6366f1;
+  
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --accent-active: #4f46e5;
+  --accent-subtle: rgba(99, 102, 241, 0.14);
+  --accent-glow: rgba(99, 102, 241, 0.28);
+  --accent-text: #a5b4fc;
+  
+  --accent-warm: #f59e0b;
+  --accent-warm-subtle: rgba(245, 158, 11, 0.14);
+  --accent-warm-text: #fbbf24;
+  
+  --color-success: #10b981;
+  --color-success-bg: rgba(16, 185, 129, 0.15);
+  --color-error: #ef4444;
+  --color-error-bg: rgba(239, 68, 68, 0.15);
+  
+  --nav-bg: rgba(10, 13, 20, 0.85);
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --nav-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px -4px rgba(0, 0, 0, 0.5);
+  --shadow-float: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Curated Visual Journal | Laxya Gaba</title>
+  <meta name="description" content="A curated visual journal of Laxya Gaba's engineering milestones, hackathons, credentials, and moments outside the terminal.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234f46e5'><rect width='24' height='24' rx='6'/><text x='12' y='16' fill='white' font-family='sans-serif' font-size='10' font-weight='bold' text-anchor='middle'>LG</text></svg>">
+  
+  <script>
+    (function() {
+      try {
+        var stored = localStorage.getItem('portfolio_theme_pref');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored ? stored : (prefersDark ? 'dark' : 'light');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body id="top" class="page-gallery-environment">
+  <div class="site-wrapper">
+    <!-- Floating Capsule Header -->
+    <header id="siteHeader" class="site-header" role="banner"></header>
+
+    <main class="main-content" id="mainContent">
+      <!-- 1. GALLERY HERO -->
+      <section class="about-hero-editorial" style="padding-bottom: 2.5rem;" aria-label="Gallery Introduction">
+        <div class="container">
+          <div class="eyebrow-label">
+            <span class="eyebrow-accent">05 /</span>
+            <span>ACHIEVEMENTS &amp; CREDENTIALS</span>
+          </div>
+
+          <h1 style="font-size: clamp(2.5rem, 5.5vw, 4.25rem); margin: 0.5rem 0 1.25rem; line-height: 1.1;">
+            Achievements &amp; Certifications
+          </h1>
+
+          <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 820px; line-height: 1.7;">
+            Verified hackathon honors, competition awards, and official industry cloud certifications earned throughout my engineering journey.
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. FILTER & CURATED EDITORIAL GRID -->
+      <section class="section-editorial" style="padding-top: 1.5rem; padding-bottom: 5rem;" aria-label="Curated Portfolio Gallery">
+        <div class="container">
+          <!-- Editorial Filter Navigation -->
+          <div class="gallery-filter-bar" role="tablist" aria-label="Filter Categories">
+            <button type="button" class="gallery-filter-pill active" data-category="ALL" role="tab" aria-selected="true">
+              <span>ALL ACHIEVEMENTS</span>
+              <span class="filter-count-badge" id="countAll">6</span>
+            </button>
+            <button type="button" class="gallery-filter-pill" data-category="HACKATHONS" role="tab" aria-selected="false">
+              <span>HACKATHONS</span>
+              <span class="filter-count-badge" id="countHack">4</span>
+            </button>
+            <button type="button" class="gallery-filter-pill" data-category="CREDENTIALS" role="tab" aria-selected="false">
+              <span>CREDENTIALS</span>
+              <span class="filter-count-badge" id="countCred">2</span>
+            </button>
+          </div>
+
+          <!-- Mixed Editorial Grid Container -->
+          <div class="gallery-editorial-grid" id="galleryGrid" aria-label="Gallery Collection"></div>
+        </div>
+      </section>
+
+      <!-- 3. PREMIUM LIGHTBOX DIALOG -->
+      <div id="galleryModalBackdrop" class="gallery-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image Lightbox Viewer">
+        <div class="gallery-modal-sheet" id="galleryModalSheet">
+          <!-- Top Bar -->
+          <div class="gallery-modal-header">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span id="modalCounter" class="gallery-counter-chip">01 / 08</span>
+              <span id="modalMetaCategory" class="badge-chip">CATEGORY</span>
+              <span id="modalMetaYear" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">2025</span>
+            </div>
+            <button type="button" id="modalCloseBtn" class="gallery-close-btn" aria-label="Close dialog (Escape)">✕</button>
+          </div>
+
+          <!-- Main Stage with Prev / Next Chevrons -->
+          <div class="gallery-modal-stage">
+            <button type="button" id="modalPrevBtn" class="gallery-nav-btn gallery-prev-btn" aria-label="Previous item (Left Arrow)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <div id="modalVisualHolder" class="gallery-modal-visual"></div>
+
+            <button type="button" id="modalNextBtn" class="gallery-nav-btn gallery-next-btn" aria-label="Next item (Right Arrow)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Caption & Narrative Body -->
+          <div class="gallery-modal-footer">
+            <h3 id="modalTitle" class="gallery-modal-title">Title</h3>
+            <p id="modalDesc" class="gallery-modal-desc">Description</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. PERSPECTIVE STORY NOTE & LINKS -->
+      <section class="section-editorial" style="background: var(--bg-surface); text-align: center; border-top: 1px solid var(--border-subtle);" aria-label="Gallery Next Steps">
+        <div class="container container-narrow">
+          <div class="eyebrow-label" style="justify-content: center;">
+            <span class="eyebrow-accent">•</span>
+            <span>BEYOND THE GALLERY</span>
+          </div>
+          <h2 style="font-size: clamp(2rem, 3.8vw, 2.75rem); margin: 0.5rem 0 1rem;">
+            Explore the Engineering Systems
+          </h2>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7;">
+            Inspect architectural case studies, problem solving workflows, and academic assignments behind these milestones.
+          </p>
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="/projects/" class="btn-editorial btn-editorial-primary">
+              <span>EXPLORE PROJECTS →</span>
+            </a>
+            <a href="/resume/" class="btn-editorial btn-editorial-secondary">
+              <span>VIEW RESUME</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer id="siteFooter" class="site-footer-editorial" role="contentinfo"></footer>
+  </div>
+
+  <script type="module" src="/src/pages/gallery.js"></script>
+</body>
+</html>

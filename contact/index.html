@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Laxya Gaba | Let's Connect</title>
+  <meta name="description" content="Connect with Laxya Gaba, AI & LLM Engineering Student at Chandigarh University, for internships, project collaborations, or technical correspondence.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><rect width='24' height='24' rx='6'/><text x='12' y='16' fill='white' font-family='sans-serif' font-size='10' font-weight='bold' text-anchor='middle'>LG</text></svg>">
+  
+  <script>
+    (function() {
+      try {
+        var stored = localStorage.getItem('portfolio_theme_pref');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored ? stored : (prefersDark ? 'dark' : 'light');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body id="top">
+  <div class="site-wrapper">
+    <!-- Floating Capsule Header -->
+    <header id="siteHeader" class="site-header" role="banner"></header>
+
+    <main class="main-content" id="mainContent">
+      <div class="container" style="padding-top: 4rem; padding-bottom: 6rem;">
+        <div class="contact-split-layout">
+          <!-- Left Column: Dramatic Large Display Typography -->
+          <div>
+            <div class="eyebrow-label">
+              <span class="eyebrow-accent">08 /</span>
+              <span>COMMUNICATION CHANNELS</span>
+            </div>
+
+            <h1 style="font-size: clamp(3rem, 6.5vw, 5.25rem); margin-bottom: 1.5rem; line-height: 1.02;">
+              LET'S<br>CONNECT.
+            </h1>
+
+            <p style="font-size: 1.2rem; color: var(--text-secondary); line-height: 1.7; max-width: 480px; margin-bottom: 3rem;">
+              Have an idea, opportunity, collaboration or simply want to talk technology? I'd welcome the chance to speak.
+            </p>
+
+            <div class="contact-channels-editorial">
+              <div class="channel-editorial-item">
+                <div>
+                  <div class="channel-label">EMAIL DIRECT</div>
+                  <div class="channel-value" id="contactEmailVal">gabalaxya002@gmail.com</div>
+                </div>
+                <button type="button" id="copyEmailBtn" class="btn btn-subtle btn-sm" style="color: var(--text-muted); border-color: var(--border-medium);">Copy</button>
+              </div>
+
+              <div class="channel-editorial-item">
+                <div>
+                  <div class="channel-label">GITHUB REPOSITORIES</div>
+                  <div class="channel-value">gabalaxya108-stack</div>
+                </div>
+                <a href="https://github.com/gabalaxya108-stack" target="_blank" rel="noopener noreferrer" class="badge-chip" style="color: var(--accent); border-color: var(--border-medium);">
+                  Visit ↗
+                </a>
+              </div>
+
+              <div class="channel-editorial-item">
+                <div>
+                  <div class="channel-label">LINKEDIN PROFILE</div>
+                  <div class="channel-value">laxya-gaba</div>
+                </div>
+                <a href="https://www.linkedin.com/in/laxya-gaba-36b570376/" target="_blank" rel="noopener noreferrer" class="badge-chip" style="color: var(--accent); border-color: var(--border-medium);">
+                  Connect ↗
+                </a>
+              </div>
+
+              <div class="channel-editorial-item">
+                <div>
+                  <div class="channel-label">UNIVERSITY &amp; LOCATION</div>
+                  <div class="channel-value" id="contactCollegeVal">Chandigarh University • Mohali, Punjab, India</div>
+                </div>
+                <span class="badge-chip" style="font-family: var(--font-mono);">UID: 25BAI10005</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Editorial Contact Note Box -->
+          <div>
+            <div class="contact-form-editorial-box">
+              <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Send a Direct Note</h2>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem;">
+                Send a message directly to gabalaxya002@gmail.com. I typically respond within 24–48 hours.
+              </p>
+
+              <form id="contactEditorialForm" novalidate>
+                <div class="form-group-editorial">
+                  <label for="contactName" class="form-label-editorial">YOUR NAME</label>
+                  <input type="text" id="contactName" class="form-input-editorial" placeholder="e.g. Alex Morgan" required autocomplete="name">
+                </div>
+
+                <div class="form-group-editorial">
+                  <label for="contactEmail" class="form-label-editorial">YOUR EMAIL</label>
+                  <input type="email" id="contactEmail" class="form-input-editorial" placeholder="alex@company.com" required autocomplete="email">
+                </div>
+
+                <div class="form-group-editorial">
+                  <label for="contactSubject" class="form-label-editorial">SUBJECT / INQUIRY TYPE</label>
+                  <input type="text" id="contactSubject" class="form-input-editorial" placeholder="Internship Opportunity / Hackathon Collaboration / Project Feedback">
+                </div>
+
+                <div class="form-group-editorial">
+                  <label for="contactMessage" class="form-label-editorial">MESSAGE</label>
+                  <textarea id="contactMessage" class="form-input-editorial" rows="4" placeholder="Briefly introduce your query or project..." required></textarea>
+                </div>
+
+                <div id="contactFormFeedback" style="margin-bottom: 1.5rem;"></div>
+
+                <button type="submit" id="contactSubmitBtn" class="btn-editorial btn-editorial-primary" style="width: 100%; justify-content: center;">
+                  <span id="contactSubmitText">SEND MESSAGE</span>
+                  <span class="arrow-icon" id="contactSubmitArrow" aria-hidden="true">→</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer id="siteFooter" class="site-footer-editorial" role="contentinfo"></footer>
+  </div>
+
+  <script type="module" src="/src/pages/contact.js"></script>
+</body>
+</html>

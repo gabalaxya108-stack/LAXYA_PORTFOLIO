@@ -1,0 +1,1142 @@
+/* ==========================================================================
+   COA LAB — STREAMLINED INTERACTIVE LEARNING STYLES
+   Minimalist, beginner-friendly, and mathematically precise
+   ========================================================================== */
+
+.page-coa-environment {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.coa-hero-compact {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.coa-hero-compact .eyebrow-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.coa-hero-compact h1 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+}
+
+.coa-hero-subtitle {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.coa-hero-desc {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 720px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Section Foundations
+   -------------------------------------------------------------------------- */
+.coa-section-block {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.coa-section-header {
+  margin-bottom: 2.25rem;
+}
+
+.coa-section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.coa-section-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.5rem;
+}
+
+.coa-section-sub {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.coa-model-note {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  margin-top: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Simulator 01: Number System Converter
+   -------------------------------------------------------------------------- */
+.coa-converter-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+.coa-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  .coa-input-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.coa-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.coa-field-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.coa-select,
+.coa-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.coa-select:focus,
+.coa-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+
+.coa-presets-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.coa-presets-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-right: 0.25rem;
+}
+
+.coa-preset-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.coa-preset-btn:hover {
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.coa-btn-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.coa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.coa-btn-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+  border: 1px solid var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.coa-btn-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.coa-btn-secondary {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-medium);
+}
+
+.coa-btn-secondary:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.coa-error-banner {
+  margin-top: 1.25rem;
+  padding: 0.85rem 1.25rem;
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-md);
+  color: #ef4444;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  display: none;
+}
+
+.coa-error-banner.active {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Result & Step-by-Step Panels
+   -------------------------------------------------------------------------- */
+.coa-result-panel {
+  display: none;
+  margin-top: 2rem;
+}
+
+.coa-result-panel.active {
+  display: block;
+}
+
+.coa-answer-hero {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0.02) 100%);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.coa-answer-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.coa-answer-val {
+  font-family: var(--font-mono);
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  word-break: break-all;
+}
+
+.coa-subheading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.coa-calc-steps-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.coa-calc-step {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.coa-calc-step.coa-step-final {
+  border-color: var(--accent);
+  background-color: var(--accent-subtle);
+}
+
+.coa-calc-step-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.coa-calc-step-body {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.coa-calc-sub {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin: 0.35rem 0 0.75rem;
+}
+
+.coa-math-formula {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  background-color: var(--bg-secondary);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+.coa-math-highlight {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--accent);
+  background-color: var(--bg-surface);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent);
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+.coa-calc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+}
+
+.coa-calc-table th,
+.coa-calc-table td {
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.coa-calc-table th {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--bg-secondary);
+}
+
+.coa-bit-group {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  margin: 0 0.2rem;
+  font-weight: 700;
+}
+
+/* Three Plain Language Pillars */
+.coa-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 800px) {
+  .coa-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.coa-pillar-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+}
+
+.coa-pillar-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.coa-pillar-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Simulator 02: CPU Instruction Cycle Simulator
+   -------------------------------------------------------------------------- */
+.coa-cpu-container {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Instruction input card */
+.coa-inst-input-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.coa-inst-input-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+@media (max-width: 640px) {
+  .coa-inst-input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.coa-inst-select-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.5rem;
+}
+
+.coa-inst-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.coa-inst-btn {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.coa-inst-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.coa-inst-btn.active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Stepper Controls Bar */
+.coa-stepper-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: var(--bg-secondary);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+}
+
+.coa-step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.coa-step-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: var(--accent);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.coa-step-phase-name {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.coa-step-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   CPU Architecture Diagram (Unambiguous Directional Flow)
+   MEMORY ↓ CONTROL UNIT ↓ REGISTERS ↓ ALU ↓ RESULT
+   -------------------------------------------------------------------------- */
+.coa-cpu-diagram-frame {
+  background-color: #060913;
+  border: 1px solid #1e293b;
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.coa-comp-card {
+  width: 100%;
+  max-width: 580px;
+  background-color: #0f172a;
+  border: 1.5px solid #334155;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.coa-comp-card.active {
+  border-color: #6366f1;
+  background-color: #1e1b4b;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  transform: scale(1.02);
+}
+
+.coa-comp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.coa-comp-title {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.coa-comp-card.active .coa-comp-title {
+  color: #a5b4fc;
+}
+
+.coa-comp-state-chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+.coa-comp-card.active .coa-comp-state-chip {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+.coa-comp-desc {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0 0 0.65rem;
+}
+
+.coa-comp-card.active .coa-comp-desc {
+  color: #cbd5e1;
+}
+
+.coa-comp-data-row {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  background: #090d16;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid #1e293b;
+}
+
+/* Directional Connecting Arrows */
+.coa-flow-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  color: #475569;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.coa-flow-arrow.active {
+  color: #818cf8;
+}
+
+.coa-flow-arrow-line {
+  width: 2px;
+  height: 24px;
+  background-color: currentColor;
+  transition: background-color 0.3s ease;
+}
+
+.coa-flow-arrow-head {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid currentColor;
+}
+
+.coa-flow-arrow-label {
+  position: absolute;
+  left: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Internal CPU Box Envelope */
+.coa-cpu-envelope {
+  width: 100%;
+  max-width: 640px;
+  border: 2px dashed #334155;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  background: rgba(15, 23, 42, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 0.5rem 0;
+}
+
+.coa-cpu-envelope-tag {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+}
+
+/* State Snapshot Strip */
+.coa-state-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 640px) {
+  .coa-state-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.coa-state-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+}
+
+.coa-state-box-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.coa-state-box-val {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* Step Explanation Panel */
+.coa-cpu-expl-panel {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+}
+
+.coa-cpu-expl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .coa-cpu-expl-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.coa-expl-item-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+}
+
+.coa-expl-item-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Short Summary Cards
+   -------------------------------------------------------------------------- */
+.coa-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .coa-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.coa-summary-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.coa-summary-card-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.coa-summary-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.65rem;
+}
+
+.coa-summary-card-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   ARITHMETIC EXPRESSION & MULTI-FORMAT INSTRUCTION SIMULATOR (SIMULATOR.git)
+   -------------------------------------------------------------------------- */
+.d-none {
+  display: none !important;
+}
+
+.coa-expr-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.coa-expr-input {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  padding: 0.85rem 1.15rem;
+}
+
+.coa-var-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.coa-var-header {
+  margin-bottom: 1.25rem;
+}
+
+.coa-var-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.coa-var-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0.25rem 0 0.25rem;
+}
+
+.coa-var-sub {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.coa-var-inputs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1rem;
+}
+
+.coa-var-input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.coa-var-input-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.coa-summary-meta-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 680px) {
+  .coa-summary-meta-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.coa-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.coa-meta-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.coa-meta-code {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.05em;
+}
+
+.coa-meta-vars {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #34d399;
+}
+
+.coa-formats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .coa-formats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.coa-format-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.coa-format-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.coa-format-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.75rem;
+}
+
+.coa-format-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.coa-format-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  background-color: var(--accent-subtle);
+  color: var(--accent);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: var(--radius-full);
+}
+
+.coa-instructions-box {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #93c5fd;
+  white-space: pre-wrap;
+  margin: 0.5rem 0 0;
+  overflow-x: auto;
+}
+
+.coa-simulation-steps-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.coa-sim-step-item {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.coa-sim-step-inst {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.coa-sim-step-res {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.coa-sim-step-state {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.coa-format-meta-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+}
+
+.coa-format-meta-footer p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.coa-format-meta-footer strong {
+  color: var(--text-primary);
+}
+
+.coa-comparison-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.coa-comparison-header {
+  margin-bottom: 1.25rem;
+}
+
+.coa-comparison-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0.25rem 0 0.35rem;
+}
+
+.coa-table-wrapper {
+  overflow-x: auto;
+}
+
+.coa-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+.coa-table th {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.coa-table td {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.coa-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.coa-table td:first-child {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+

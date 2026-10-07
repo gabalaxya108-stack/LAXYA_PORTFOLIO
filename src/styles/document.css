@@ -1,0 +1,317 @@
+/* ==========================================================================
+   ACADEMIC DOCUMENT & COURSEWORK DOSSIER STYLES
+   ========================================================================== */
+
+.page-document-environment {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.doc-hero-section {
+  padding: 3.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.doc-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.doc-hero-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.85rem;
+}
+
+.doc-hero-desc {
+  font-size: 1.12rem;
+  color: var(--text-secondary);
+  max-width: 860px;
+  line-height: 1.65;
+  margin: 0 0 2rem;
+}
+
+/* Metadata Dossier Grid */
+.doc-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .doc-meta-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .doc-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.doc-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.doc-meta-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.doc-meta-value {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* PDF Viewer Shell */
+.doc-viewer-wrapper {
+  margin: 3rem 0;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.doc-viewer-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.doc-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.doc-viewer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.doc-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  border: 1px solid var(--border-medium);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.doc-action-btn:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.doc-action-btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.doc-action-btn-primary:hover {
+  opacity: 0.92;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* PDF Canvas Container */
+.doc-iframe-container {
+  width: 100%;
+  height: 840px;
+  background-color: #0d1117;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .doc-iframe-container {
+    height: 520px;
+  }
+}
+
+.doc-pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Mobile Direct-Launch Banner */
+.doc-mobile-notice {
+  display: none;
+  padding: 1rem 1.5rem;
+  background-color: var(--accent-subtle);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .doc-mobile-notice {
+    display: flex;
+  }
+}
+
+.doc-mobile-notice p {
+  font-size: 0.85rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+/* Curricular Topics Covered (12 Questions) */
+.doc-topics-container {
+  padding: 3rem 0 5rem;
+}
+
+.doc-topics-header {
+  margin-bottom: 2rem;
+}
+
+.doc-topics-header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+}
+
+.doc-topics-header p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.doc-themes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .doc-themes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.doc-theme-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-theme-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.doc-theme-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.doc-theme-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.doc-q-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.doc-q-item {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.doc-q-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  margin-top: 0.1rem;
+}
+
+.doc-q-content {
+  flex: 1;
+}
+
+.doc-q-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.2rem;
+  line-height: 1.35;
+}
+
+.doc-q-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}

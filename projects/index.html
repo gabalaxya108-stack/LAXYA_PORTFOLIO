@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Laxya Gaba | AI &amp; Engineering Index</title>
+  <meta name="description" content="Technical engineering projects by Laxya Gaba, including CREST, AI-Powered Resume Analyzer, NeuroVision AI, ParakhAI, IP Shakti Sahayak, and SAAR.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234f46e5'><rect width='24' height='24' rx='6'/><text x='12' y='16' fill='white' font-family='sans-serif' font-size='10' font-weight='bold' text-anchor='middle'>LG</text></svg>">
+  
+  <script>
+    (function() {
+      try {
+        var stored = localStorage.getItem('portfolio_theme_pref');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored ? stored : (prefersDark ? 'dark' : 'light');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body id="top">
+  <div class="site-wrapper">
+    <!-- Floating Capsule Header -->
+    <header id="siteHeader" class="site-header" role="banner"></header>
+
+    <main class="main-content" id="mainContent">
+      <!-- 1. PROJECTS HERO -->
+      <section class="projects-hero-editorial" aria-label="Projects Introduction">
+        <div class="container">
+          <div class="eyebrow-label">
+            <span class="eyebrow-accent">01 /</span>
+            <span>PROJECTS</span>
+          </div>
+
+          <h1 class="projects-hero-title">
+            Selected engineering work, experiments, and systems built while developing toward AI engineering.
+          </h1>
+
+          <p class="projects-hero-lead">
+            Spanning Machine Learning grievance triage, Generative AI multimodal pipelines, real-time contest platforms, and algorithmic problem-solving.
+          </p>
+
+          <!-- Quick Metric & Verification Strip -->
+          <div class="projects-hero-metrics">
+            <div class="hero-metric-item">
+              <span class="metric-num">06</span>
+              <span class="metric-lbl">CORE SYSTEMS</span>
+            </div>
+            <div class="hero-metric-divider"></div>
+            <div class="hero-metric-item">
+              <span class="metric-num">02</span>
+              <span class="metric-lbl">NATIONAL HACKATHONS</span>
+            </div>
+            <div class="hero-metric-divider"></div>
+            <div class="hero-metric-item">
+              <span class="metric-num">02</span>
+              <span class="metric-lbl">AZURE CLOUD &amp; AI CERTIFICATIONS</span>
+            </div>
+            <div class="hero-metric-divider"></div>
+            <div class="hero-metric-item">
+              <span class="metric-num">100%</span>
+              <span class="metric-lbl">VERIFIED SOURCE CODE ON GITHUB</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PROJECT FILTER SYSTEM & CASE STUDY INDEX -->
+      <section class="section-editorial section-border-bottom reveal-init" aria-label="Project Index">
+        <div class="container">
+          <!-- Filter Bar -->
+          <div class="projects-filter-wrapper">
+            <div class="filter-label">FILTER BY DOMAIN:</div>
+            <div class="filter-buttons-group" id="projectFilterGroup">
+              <button type="button" class="filter-btn active" data-filter="all">ALL PROJECTS (6)</button>
+              <button type="button" class="filter-btn" data-filter="ai">AI &amp; HACKATHONS</button>
+              <button type="button" class="filter-btn" data-filter="genai">GENERATIVE AI &amp; RAG</button>
+              <button type="button" class="filter-btn" data-filter="dl">DEEP LEARNING &amp; CV</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Projects Container -->
+          <div class="projects-archive-stack" id="projectsArchiveContainer">
+            <!-- Populated via src/pages/projects.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. PROJECT DEVELOPMENT & LEARNING NOTE -->
+      <section class="section-editorial section-border-bottom reveal-init" aria-label="Engineering Development Note">
+        <div class="container container-narrow">
+          <div class="learning-note-card">
+            <div class="eyebrow-label" style="justify-content: center;">
+              <span class="eyebrow-accent">•</span>
+              <span>ENGINEERING TRAJECTORY</span>
+            </div>
+            <h2 class="learning-note-title">
+              From Concept Exploration to Robust Software Systems
+            </h2>
+            <p class="learning-note-desc">
+              These projects represent different stages of my engineering development — from hackathon problem solving and AI experimentation to building software systems around Data Structures &amp; Algorithms and real-time interaction. Each build reinforces that robust engineering is not just training models, but designing resilient pipelines, managing edge cases, and writing clean, maintainable code.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. CLOSING CTA -->
+      <section class="projects-closing-cta reveal-init" aria-label="Collaboration Call to Action">
+        <div class="container container-narrow">
+          <div class="eyebrow-label" style="justify-content: center;">
+            <span class="eyebrow-accent">02 /</span>
+            <span>COLLABORATION</span>
+          </div>
+          <h2 class="closing-cta-heading">
+            Have an interesting problem to solve?
+          </h2>
+          <p class="closing-cta-sub">
+            Open to learning, collaborating on hackathon initiatives, and discussing AI/software engineering internship opportunities.
+          </p>
+          <div class="closing-cta-buttons">
+            <a href="/contact/" class="btn-editorial btn-editorial-primary">
+              <span>GET IN TOUCH</span>
+              <span class="arrow-icon" aria-hidden="true">→</span>
+            </a>
+            <a href="https://github.com/gabalaxya108-stack" target="_blank" rel="noopener noreferrer" class="btn-editorial btn-editorial-secondary">
+              <span>EXPLORE GITHUB</span>
+              <span class="arrow-icon" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer id="siteFooter" class="site-footer-editorial" role="contentinfo"></footer>
+  </div>
+
+  <script type="module" src="/src/pages/projects.js"></script>
+</body>
+</html>

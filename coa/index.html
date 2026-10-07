@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COA LAB — Interactive Computer Architecture | Laxya Gaba</title>
+  <meta name="description" content="Interactive Computer Organisation & Architecture learning laboratory featuring Number System Converter and CPU Instruction Cycle Simulator.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><rect width='24' height='24' rx='6'/><text x='12' y='16' fill='white' font-family='sans-serif' font-size='10' font-weight='bold' text-anchor='middle'>LG</text></svg>">
+  
+  <script>
+    (function() {
+      try {
+        var stored = localStorage.getItem('portfolio_theme_pref');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored ? stored : (prefersDark ? 'dark' : 'light');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="page-coa-environment" id="top">
+  <div class="site-wrapper">
+    <!-- Floating Capsule Header -->
+    <header id="siteHeader" class="site-header" role="banner"></header>
+
+    <main class="main-content" id="mainContent">
+      <!-- 1. COA LAB HERO -->
+      <section class="coa-hero-compact" aria-label="COA Lab Introduction">
+        <div class="container">
+          <div class="eyebrow-label">
+            <span style="color: var(--accent);">04 /</span>
+            <span>COA LAB</span>
+          </div>
+
+          <h1>COA LAB</h1>
+          <p class="coa-hero-subtitle">Computer Organisation &amp; Architecture — Interactive Learning</p>
+          <p class="coa-hero-desc">
+            Two simple simulators that let you enter a problem, see the answer, and understand how the result was calculated.
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. SIMULATOR 01: NUMBER SYSTEM CONVERTER -->
+      <section class="coa-section-block" id="secNumberSystems" aria-label="Simulator 01 Number Systems">
+        <div class="container">
+          <header class="coa-section-header">
+            <div class="coa-section-tag">01 / NUMBER SYSTEMS</div>
+            <h2 class="coa-section-title">Number System Converter</h2>
+            <p class="coa-section-sub">
+              Convert between binary, decimal, octal, and hexadecimal and see exactly how the conversion is performed.
+            </p>
+          </header>
+
+          <!-- Interactive Input Card -->
+          <div class="coa-converter-card">
+            <div class="coa-input-row">
+              <div class="coa-field-group">
+                <label for="numFromBase" class="coa-field-label">FROM</label>
+                <select id="numFromBase" class="coa-select" aria-label="Source Number System">
+                  <option value="binary" selected>Binary (Base 2)</option>
+                  <option value="decimal">Decimal (Base 10)</option>
+                  <option value="octal">Octal (Base 8)</option>
+                  <option value="hexadecimal">Hexadecimal (Base 16)</option>
+                </select>
+              </div>
+
+              <div class="coa-field-group">
+                <label for="numToBase" class="coa-field-label">TO</label>
+                <select id="numToBase" class="coa-select" aria-label="Target Number System">
+                  <option value="decimal" selected>Decimal (Base 10)</option>
+                  <option value="binary">Binary (Base 2)</option>
+                  <option value="octal">Octal (Base 8)</option>
+                  <option value="hexadecimal">Hexadecimal (Base 16)</option>
+                </select>
+              </div>
+
+              <div class="coa-field-group">
+                <label for="numInputVal" class="coa-field-label">INPUT NUMBER</label>
+                <input type="text" id="numInputVal" class="coa-input" value="101101" placeholder="e.g. 101101" autocomplete="off" spellcheck="false" aria-label="Input number to convert" />
+              </div>
+            </div>
+
+            <!-- Quick Example Presets -->
+            <div class="coa-presets-wrap">
+              <span class="coa-presets-label">EXAMPLES:</span>
+              <button type="button" class="coa-preset-btn" data-from="binary" data-to="decimal" data-val="101101">101101 (Bin → Dec)</button>
+              <button type="button" class="coa-preset-btn" data-from="decimal" data-to="binary" data-val="45">45 (Dec → Bin)</button>
+              <button type="button" class="coa-preset-btn" data-from="decimal" data-to="hexadecimal" data-val="255">255 (Dec → Hex)</button>
+              <button type="button" class="coa-preset-btn" data-from="hexadecimal" data-to="decimal" data-val="FF">FF (Hex → Dec)</button>
+              <button type="button" class="coa-preset-btn" data-from="octal" data-to="binary" data-val="77">77 (Oct → Bin)</button>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="coa-btn-actions">
+              <button type="button" id="numConvertBtn" class="coa-btn coa-btn-primary">
+                <span>CONVERT</span>
+                <span>→</span>
+              </button>
+              <button type="button" id="numResetBtn" class="coa-btn coa-btn-secondary">
+                <span>↺ RESET</span>
+              </button>
+            </div>
+
+            <!-- Error Banner -->
+            <div id="numErrorBanner" class="coa-error-banner" role="alert"></div>
+          </div>
+
+          <!-- Result & Derivation Container -->
+          <div id="numResultPanel" class="coa-result-panel active">
+            <!-- Prominent Answer Card -->
+            <div class="coa-answer-hero">
+              <div class="coa-answer-label">ANSWER</div>
+              <h3 id="numAnswerVal" class="coa-answer-val">101101₂ = 45₁₀</h3>
+            </div>
+
+            <!-- Step-by-Step Mathematical Calculation -->
+            <h3 class="coa-subheading">
+              <span>HOW IT WAS CALCULATED</span>
+            </h3>
+            <div id="numStepsContainer" class="coa-calc-steps-wrap"></div>
+
+            <!-- In Simple Words (Pedagogical Takeaway) -->
+            <h3 class="coa-subheading">
+              <span>IN SIMPLE WORDS</span>
+            </h3>
+            <div class="coa-pillars-grid">
+              <div class="coa-pillar-card">
+                <div class="coa-pillar-tag">WHAT HAPPENED?</div>
+                <p id="numWhatHappened" class="coa-pillar-text">
+                  Converted binary 101101₂ into standard base-10 decimal (45₁₀).
+                </p>
+              </div>
+
+              <div class="coa-pillar-card">
+                <div class="coa-pillar-tag">HOW?</div>
+                <p id="numHow" class="coa-pillar-text">
+                  Multiplied each binary digit by its positional power of 2 and added the products together.
+                </p>
+              </div>
+
+              <div class="coa-pillar-card">
+                <div class="coa-pillar-tag">WHY?</div>
+                <p id="numWhy" class="coa-pillar-text">
+                  In positional numbering, each column to the left increases in value by the base radix (2⁰, 2¹, 2², 2³...).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. SIMULATOR 02: COA ARITHMETIC EXPRESSION & MULTI-FORMAT INSTRUCTION SIMULATOR (SIMULATOR.git) -->
+      <section class="coa-section-block" id="secExpressionSimulator" aria-label="Simulator 02 COA Arithmetic Expression Simulator">
+        <div class="container">
+          <header class="coa-section-header">
+            <div class="coa-section-tag">02 / ARITHMETIC & INSTRUCTION FORMATS</div>
+            <h2 class="coa-section-title">COA Arithmetic Expression Simulator</h2>
+            <p class="coa-section-sub">
+              Validate arithmetic expressions, convert infix to postfix form, generate instruction sets for multiple CPU formats (3-Address, 2-Address, 1-Address, 0-Address), and simulate execution step-by-step.
+            </p>
+            <div>
+              <span class="coa-model-note">FOUR MACHINE ARCHITECTURES</span>
+              <span style="font-size: 0.82rem; color: var(--text-muted); margin-left: 0.5rem;">
+                (Three-Address TAC, Two-Address R1, One-Address AC, and Zero-Address Stack)
+              </span>
+            </div>
+          </header>
+
+          <div class="coa-expr-container">
+            <!-- Arithmetic Expression Input Card -->
+            <div class="coa-inst-input-card">
+              <div class="coa-field-group">
+                <label for="expression" class="coa-field-label">ARITHMETIC EXPRESSION (LOWERCASE OPERANDS a–z, +, -, *, /, PARENTHESES)</label>
+                <input type="text" id="expression" class="coa-input coa-expr-input" value="a+b*(c-d)" placeholder="Example: a+b*(c-d)" autocomplete="off" spellcheck="false" />
+              </div>
+
+              <!-- Presets -->
+              <div class="coa-presets-wrap" style="margin-top: 1rem;">
+                <span class="coa-presets-label">EXPRESSION PRESETS:</span>
+                <button type="button" class="coa-preset-btn coa-expr-preset-btn active" data-expr="a+b*(c-d)">a+b*(c-d)</button>
+                <button type="button" class="coa-preset-btn coa-expr-preset-btn" data-expr="a+b*c">a+b*c</button>
+                <button type="button" class="coa-preset-btn coa-expr-preset-btn" data-expr="(a+b)*(c-d)">(a+b)*(c-d)</button>
+                <button type="button" class="coa-preset-btn coa-expr-preset-btn" data-expr="a*b+c*d">a*b+c*d</button>
+                <button type="button" class="coa-preset-btn coa-expr-preset-btn" data-expr="(a+b*c)/(d-e)">(a+b*c)/(d-e)</button>
+              </div>
+
+              <!-- Action buttons -->
+              <div class="coa-expr-actions-row" style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                <button type="button" id="validateBtn" class="coa-btn coa-btn-secondary">
+                  <span>✓ VALIDATE</span>
+                </button>
+                <button type="button" id="generateBtn" class="coa-btn coa-btn-primary">
+                  <span>▶ GENERATE & EXECUTE</span>
+                </button>
+                <button type="button" id="resetBtn" class="coa-btn coa-btn-secondary">
+                  <span>↺ RESET</span>
+                </button>
+              </div>
+
+              <!-- Message / Alert box -->
+              <div id="messageBox" class="coa-error-banner d-none" role="alert" style="margin-top: 1rem;"></div>
+            </div>
+
+            <!-- Variable Inputs Section -->
+            <div id="variableSection" class="coa-var-card d-none">
+              <div class="coa-var-header">
+                <span class="coa-var-tag">OPERAND BINDINGS</span>
+                <h3 class="coa-var-title">Variable Inputs</h3>
+                <p class="coa-var-sub">Enter numeric values for the variables detected in your expression:</p>
+              </div>
+              <div id="variableInputs" class="coa-var-inputs-grid"></div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results" class="coa-results-wrap d-none">
+              <!-- Expression Summary Card -->
+              <div class="coa-summary-meta-card">
+                <div class="coa-meta-item">
+                  <span class="coa-meta-label">POSTFIX FORM (REVERSE POLISH NOTATION)</span>
+                  <span id="postfixValue" class="coa-meta-code">—</span>
+                </div>
+                <div class="coa-meta-item">
+                  <span class="coa-meta-label">VARIABLES DETECTED</span>
+                  <span id="variablesValue" class="coa-meta-vars">—</span>
+                </div>
+              </div>
+
+              <!-- 4 Format Cards -->
+              <div id="formatCards" class="coa-formats-grid"></div>
+
+              <!-- Comparison Table -->
+              <div class="coa-comparison-card" style="margin-top: 2rem;">
+                <div class="coa-comparison-header">
+                  <span class="coa-var-tag">ARCHITECTURAL AUDIT</span>
+                  <h3 class="coa-comparison-title">Instruction Format Comparison Table</h3>
+                  <p class="coa-comp-desc">Side-by-side analysis of instruction counts, hardware storage, and intermediate overhead across all four machine paradigms.</p>
+                </div>
+                <div class="coa-table-wrapper">
+                  <table class="coa-table">
+                    <thead>
+                      <tr>
+                        <th>Format</th>
+                        <th>Instruction Count</th>
+                        <th>Registers / Stack</th>
+                        <th>Temporary Variables</th>
+                        <th>Final Result</th>
+                      </tr>
+                    </thead>
+                    <tbody id="comparisonTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. SIMULATOR 03: CPU / INSTRUCTION SIMULATOR -->
+      <section class="coa-section-block" id="secCpuSimulator" aria-label="Simulator 03 CPU Instruction Cycle">
+        <div class="container">
+          <header class="coa-section-header">
+            <div class="coa-section-tag">03 / CPU DATA PATH</div>
+            <h2 class="coa-section-title">Von Neumann Instruction Cycle Stepper</h2>
+            <p class="coa-section-sub">
+              See how a simple instruction moves through the CPU 4-phase micro-operations from fetch to execution.
+            </p>
+            <div>
+              <span class="coa-model-note">SIMPLIFIED EDUCATIONAL MODEL</span>
+              <span style="font-size: 0.82rem; color: var(--text-muted); margin-left: 0.5rem;">
+                (Educational simplification — real CPUs contain many additional components and stages.)
+              </span>
+            </div>
+          </header>
+
+          <div class="coa-cpu-container">
+            <!-- Instruction Input & Presets Bar -->
+            <div class="coa-inst-input-card">
+              <div class="coa-inst-input-row">
+                <div class="coa-field-group" style="flex: 1;">
+                  <label for="customInstInput" class="coa-field-label">ENTER INSTRUCTION (ASSEMBLY)</label>
+                  <input type="text" id="customInstInput" class="coa-input" value="LOAD R1, 5" placeholder="e.g. LOAD R1, 42 | ADD R1, 7 | SUB R1, 3 | STORE R1" autocomplete="off" spellcheck="false" aria-label="Custom assembly instruction" />
+                </div>
+                <button type="button" id="loadCustomInstBtn" class="coa-btn coa-btn-primary" style="white-space: nowrap;">
+                  <span>SET INSTRUCTION</span>
+                  <span>→</span>
+                </button>
+              </div>
+
+              <!-- Quick Presets -->
+              <div class="coa-presets-wrap" style="margin-top: 1rem; margin-bottom: 0.25rem;">
+                <span class="coa-presets-label">QUICK PRESETS:</span>
+                <button type="button" class="coa-preset-btn active" data-inst="LOAD R1, 5">LOAD R1, 5</button>
+                <button type="button" class="coa-preset-btn" data-inst="ADD R1, 3">ADD R1, 3</button>
+                <button type="button" class="coa-preset-btn" data-inst="SUB R1, 2">SUB R1, 2</button>
+                <button type="button" class="coa-preset-btn" data-inst="STORE R1">STORE R1</button>
+              </div>
+
+              <!-- Error Banner -->
+              <div id="instErrorBanner" class="coa-error-banner" role="alert" style="margin-top: 0.75rem;"></div>
+
+              <div id="instDesc" style="font-size: 0.88rem; color: var(--text-secondary); font-family: var(--font-mono); margin-top: 0.65rem;">
+                Load immediate integer 5 directly into register R1.
+              </div>
+            </div>
+
+            <!-- Stepper Controls & Progress -->
+            <div class="coa-stepper-bar">
+              <div class="coa-step-indicator">
+                <span id="cpuStepBadge" class="coa-step-badge">STEP 0 / 4</span>
+                <span id="cpuPhaseName" class="coa-step-phase-name">READY</span>
+              </div>
+
+              <div class="coa-step-controls">
+                <button type="button" id="cpuPrevBtn" class="coa-btn coa-btn-secondary" style="padding: 0.5rem 1rem;" disabled>
+                  <span>◀ PREVIOUS</span>
+                </button>
+                <button type="button" id="cpuNextBtn" class="coa-btn coa-btn-primary" style="padding: 0.5rem 1.25rem;">
+                  <span>NEXT STEP ▶</span>
+                </button>
+                <button type="button" id="cpuPlayBtn" class="coa-btn coa-btn-secondary" style="padding: 0.5rem 1rem;">
+                  <span id="cpuPlayIcon">▶</span>
+                  <span id="cpuPlayText">PLAY</span>
+                </button>
+                <button type="button" id="cpuResetBtn" class="coa-btn coa-btn-secondary" style="padding: 0.5rem 1rem;">
+                  <span>↺ RESET</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- CPU Architecture Diagram (Strict Single Direction Flow) -->
+            <div class="coa-cpu-diagram-frame" aria-label="CPU Hardware Data Path Diagram">
+              <!-- 1. MEMORY -->
+              <div id="comp-memory" class="coa-comp-card">
+                <div class="coa-comp-header">
+                  <span class="coa-comp-title">1. MEMORY (RAM)</span>
+                  <span class="coa-comp-state-chip" id="chip-mem-status">Active Storage</span>
+                </div>
+                <p class="coa-comp-desc">Stores instructions and program data.</p>
+                <div class="coa-comp-data-row" id="val-mem-content">
+                  Address 0x00: <span style="color: #60a5fa;" id="val-mem-inst">LOAD R1, 5</span>
+                </div>
+              </div>
+
+              <!-- Connecting Arrow: FETCH -->
+              <div id="arrow-fetch" class="coa-flow-arrow">
+                <div class="coa-flow-arrow-line"></div>
+                <div class="coa-flow-arrow-head"></div>
+                <span class="coa-flow-arrow-label">FETCH</span>
+              </div>
+
+              <!-- Internal CPU Envelope -->
+              <div class="coa-cpu-envelope">
+                <div class="coa-cpu-envelope-tag">CPU CORE</div>
+
+                <!-- 2. CONTROL UNIT -->
+                <div id="comp-cu" class="coa-comp-card" style="margin-top: 0.5rem;">
+                  <div class="coa-comp-header">
+                    <span class="coa-comp-title">2. CONTROL UNIT (CU)</span>
+                    <span class="coa-comp-state-chip" id="chip-cu-status">Decoder</span>
+                  </div>
+                  <p class="coa-comp-desc">Decides what the instruction needs to do.</p>
+                  <div class="coa-comp-data-row" id="val-cu-status">
+                    Status: Idle
+                  </div>
+                </div>
+
+                <!-- Connecting Arrow: DECODE -->
+                <div id="arrow-decode" class="coa-flow-arrow">
+                  <div class="coa-flow-arrow-line"></div>
+                  <div class="coa-flow-arrow-head"></div>
+                  <span class="coa-flow-arrow-label">DECODE / ROUTE</span>
+                </div>
+
+                <!-- 3. REGISTERS -->
+                <div id="comp-reg" class="coa-comp-card">
+                  <div class="coa-comp-header">
+                    <span class="coa-comp-title">3. REGISTERS</span>
+                    <span class="coa-comp-state-chip" id="chip-reg-status">Fast Storage</span>
+                  </div>
+                  <p class="coa-comp-desc">Small, fast storage inside the CPU.</p>
+                  <div class="coa-comp-data-row" style="display: flex; gap: 1.5rem;">
+                    <span>R1 = <strong style="color: #34d399;" id="val-r1">0</strong></span>
+                    <span style="color: #94a3b8;">PC = <strong id="val-pc">0x00</strong></span>
+                    <span style="color: #94a3b8;">IR = <strong id="val-ir">—</strong></span>
+                  </div>
+                </div>
+
+                <!-- Connecting Arrow: EXECUTE -->
+                <div id="arrow-execute" class="coa-flow-arrow">
+                  <div class="coa-flow-arrow-line"></div>
+                  <div class="coa-flow-arrow-head"></div>
+                  <span class="coa-flow-arrow-label">EXECUTE</span>
+                </div>
+
+                <!-- 4. ALU -->
+                <div id="comp-alu" class="coa-comp-card" style="margin-bottom: 0.5rem;">
+                  <div class="coa-comp-header">
+                    <span class="coa-comp-title">4. ALU (Arithmetic Logic Unit)</span>
+                    <span class="coa-comp-state-chip" id="chip-alu-status">Computation</span>
+                  </div>
+                  <p class="coa-comp-desc">Performs arithmetic and logical operations.</p>
+                  <div class="coa-comp-data-row" id="val-alu-status">
+                    Operation: Ready
+                  </div>
+                </div>
+              </div>
+
+              <!-- Connecting Arrow: STORE / WRITE-BACK -->
+              <div id="arrow-store" class="coa-flow-arrow">
+                <div class="coa-flow-arrow-line"></div>
+                <div class="coa-flow-arrow-head"></div>
+                <span class="coa-flow-arrow-label">STORE / WRITE-BACK</span>
+              </div>
+
+              <!-- 5. RESULT -->
+              <div id="comp-result" class="coa-comp-card">
+                <div class="coa-comp-header">
+                  <span class="coa-comp-title">5. RESULT</span>
+                  <span class="coa-comp-state-chip" id="chip-result-status">Output</span>
+                </div>
+                <p class="coa-comp-desc">Final stored outcome of the operation.</p>
+                <div class="coa-comp-data-row" id="val-result-status" style="color: #38bdf8;">
+                  Waiting for execution cycle to complete.
+                </div>
+              </div>
+            </div>
+
+            <!-- Hardware State Snapshot Strip -->
+            <div class="coa-state-strip">
+              <div class="coa-state-box">
+                <div class="coa-state-box-title">PROGRAM COUNTER (PC)</div>
+                <div class="coa-state-box-val" id="stripPc">0x00</div>
+              </div>
+              <div class="coa-state-box">
+                <div class="coa-state-box-title">INSTRUCTION REGISTER (IR)</div>
+                <div class="coa-state-box-val" id="stripIr">—</div>
+              </div>
+              <div class="coa-state-box">
+                <div class="coa-state-box-title">REGISTER R1</div>
+                <div class="coa-state-box-val" id="stripR1">0</div>
+              </div>
+              <div class="coa-state-box">
+                <div class="coa-state-box-title">HARDWARE STATUS</div>
+                <div class="coa-state-box-val" id="stripStatus">Ready</div>
+              </div>
+            </div>
+
+            <!-- Step Explanation Panel -->
+            <div class="coa-cpu-expl-panel">
+              <div class="coa-cpu-expl-grid">
+                <div>
+                  <div class="coa-expl-item-title">WHAT IS HAPPENING?</div>
+                  <p id="cpuWhatHappening" class="coa-expl-item-text">
+                    Instruction 'LOAD R1, 5' is loaded in memory at address 0x00. Click 'Next Step' or 'Play' to begin.
+                  </p>
+                </div>
+                <div>
+                  <div class="coa-expl-item-title">WHY?</div>
+                  <p id="cpuWhy" class="coa-expl-item-text">
+                    The CPU clock synchronizes each micro-operation step by step.
+                  </p>
+                </div>
+                <div>
+                  <div class="coa-expl-item-title">HARDWARE RESULT</div>
+                  <p id="cpuResultText" class="coa-expl-item-text" style="color: var(--accent); font-family: var(--font-mono); font-weight: 700;">
+                    Ready to run.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. SHORT LEARNING SUMMARY -->
+      <section class="coa-section-block" aria-label="Architectural Summary">
+        <div class="container">
+          <header class="coa-section-header">
+            <div class="coa-section-tag">03 / SUMMARY</div>
+            <h2 class="coa-section-title">Key Architectural Principles</h2>
+            <p class="coa-section-sub">
+              Three fundamental takeaways connecting numbers, machine code, and processor circuits.
+            </p>
+          </header>
+
+          <div class="coa-summary-grid">
+            <div class="coa-summary-card">
+              <div class="coa-summary-card-num">01 / REPRESENTATION</div>
+              <h3 class="coa-summary-card-title">Bits are the Machine Reality</h3>
+              <p class="coa-summary-card-desc">
+                Physical transistors only recognize two voltage states: 0 and 1. Number systems (Decimal, Octal, Hexadecimal) are human interfaces that simplify reasoning about large binary words without losing bit-level precision.
+              </p>
+            </div>
+
+            <div class="coa-summary-card">
+              <div class="coa-summary-card-num">02 / THE CLOCK CYCLE</div>
+              <h3 class="coa-summary-card-title">Everything is Sequential</h3>
+              <p class="coa-summary-card-desc">
+                Processors do not execute software in a single jump. Every instruction must pass through Fetch → Decode → Execute → Store. A modern CPU executes billions of these synchronous cycles every second.
+              </p>
+            </div>
+
+            <div class="coa-summary-card">
+              <div class="coa-summary-card-num">03 / MODULAR HARDWARE</div>
+              <h3 class="coa-summary-card-title">Separation of Duties</h3>
+              <p class="coa-summary-card-desc">
+                Memory holds program instructions, the Control Unit acts as the coordinator, Registers supply ultra-fast local storage, and the ALU executes arithmetic calculations. This separation enables computers to scale.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer id="siteFooter" class="site-footer-editorial" role="contentinfo"></footer>
+  </div>
+
+  <script type="module" src="/src/pages/coa.js"></script>
+</body>
+</html>

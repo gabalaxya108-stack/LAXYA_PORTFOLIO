@@ -14,21 +14,9 @@ import { initSiteChrome } from "../modules/siteNav.js";
 document.addEventListener("DOMContentLoaded", () => {
   initSiteChrome("home");
   renderHomeContent();
-  initLaunchButton();
   initBitAnimation();
   initMetricCounterAnimation();
 });
-
-function initLaunchButton() {
-  const launchBtn = document.getElementById("launchPortfolioBtn");
-  launchBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = document.getElementById("portfolioShowcase");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-}
 
 function renderHomeContent() {
   document.title = `${profile.name} — ${profile.heroHeadline}`;

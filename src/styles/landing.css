@@ -1,26 +1,32 @@
 /* ==========================================================================
-   LANDING HERO — DISTINCT, SIMPLE, EDITORIAL DESIGN SYSTEM
+   LANDING PAGE & HERO — DISTINCT, SIMPLE, EDITORIAL DESIGN SYSTEM
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Landing Hero Stage & Ambient Atmosphere
+   1. Dedicated Landing Portal Stage (index.html)
    -------------------------------------------------------------------------- */
-.landing-hero-stage {
+.landing-portal-stage {
   position: relative;
-  padding: 5rem 0 3.5rem;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4.5rem 1.5rem 3.5rem;
   overflow: hidden;
-  border-bottom: 1px solid var(--border-subtle);
-  background: radial-gradient(circle at 60% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 65%);
+  background: radial-gradient(circle at 50% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 65%);
 }
 
 .landing-ambient-glow {
   position: absolute;
-  top: 25%;
-  right: 15%;
-  width: 500px;
-  height: 500px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 550px;
+  height: 550px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(79, 70, 229, 0.04) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.16) 0%, rgba(79, 70, 229, 0.05) 50%, transparent 70%);
   filter: blur(65px);
   pointer-events: none;
   z-index: 0;
@@ -28,43 +34,18 @@
 }
 
 @keyframes ambientAura {
-  0% { transform: scale(0.95) translate(0, 0); opacity: 0.6; }
-  50% { transform: scale(1.1) translate(-20px, 15px); opacity: 0.85; }
-  100% { transform: scale(0.95) translate(0, 0); opacity: 0.6; }
+  0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.55; }
+  50% { transform: translate(-50%, -50%) scale(1.12); opacity: 0.85; }
+  100% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.55; }
 }
 
-/* --------------------------------------------------------------------------
-   2. Responsive Grid Layout
-   -------------------------------------------------------------------------- */
-.landing-hero-grid {
+.landing-content-wrap {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1.4fr 0.9fr;
-  align-items: center;
-  gap: 3.5rem;
-}
-
-@media (max-width: 960px) {
-  .landing-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2.75rem;
-    text-align: center;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   3. Left Column: Typography, Badges & Actions
-   -------------------------------------------------------------------------- */
-.landing-hero-left {
+  max-width: 820px;
   display: flex;
   flex-direction: column;
-}
-
-@media (max-width: 960px) {
-  .landing-hero-left {
-    align-items: center;
-  }
+  align-items: center;
 }
 
 /* Status Beacon Badge */
@@ -72,7 +53,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.35rem 0.85rem;
+  padding: 0.35rem 0.9rem;
   background: var(--bg-surface);
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-full);
@@ -82,8 +63,7 @@
   color: var(--text-secondary);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 1.25rem;
-  width: fit-content;
+  margin-bottom: 1.5rem;
   box-shadow: var(--shadow-sm);
   animation: fadeInDown 0.6s ease backwards;
 }
@@ -102,15 +82,16 @@
   50% { opacity: 0.45; transform: scale(0.85); }
 }
 
-/* Display Headline */
+/* Grand Display Headline */
 .landing-hero-headline {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(3.2rem, 7.5vw, 5.8rem);
   font-weight: 900;
   letter-spacing: -0.04em;
-  line-height: 1.02;
+  line-height: 1;
   margin: 0 0 0.85rem;
-  color: var(--text-primary);
   text-transform: uppercase;
+  color: var(--text-primary);
+  animation: fadeInUp 0.8s ease backwards;
 }
 
 .landing-hero-headline .hero-highlight-word {
@@ -120,7 +101,215 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Subhead */
+/* Sub-statement */
+.landing-subhead {
+  font-family: var(--font-mono);
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin: 0 0 1.15rem;
+  text-transform: uppercase;
+  animation: fadeInUp 0.8s ease 0.1s backwards;
+}
+
+/* Narrative Description */
+.landing-desc {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 660px;
+  margin: 0 0 2rem;
+  animation: fadeInUp 0.8s ease 0.15s backwards;
+}
+
+/* Key Highlight Badges */
+.landing-highlights-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2.75rem;
+  animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+.landing-stat-pill {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.landing-stat-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   2. Prominent "LAUNCH FULL PORTFOLIO" Action Button
+   -------------------------------------------------------------------------- */
+.landing-cta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.25rem;
+  width: 100%;
+  animation: fadeInUp 0.8s ease 0.25s backwards;
+}
+
+.btn-launch-portfolio {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 1.05rem 2.75rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: #ffffff !important;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4), 0 0 15px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-launch-portfolio:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 16px 32px -6px rgba(79, 70, 229, 0.5), 0 0 25px rgba(99, 102, 241, 0.5);
+  color: #ffffff !important;
+}
+
+.btn-launch-portfolio:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-sparkle-icon {
+  color: #fde047;
+  font-size: 1.15rem;
+}
+
+.btn-arrow-icon {
+  display: inline-block;
+  font-size: 1.1rem;
+  transition: transform var(--transition-fast);
+}
+
+.btn-launch-portfolio:hover .btn-arrow-icon {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   3. Quick-Access Category Cards (On Landing Page)
+   -------------------------------------------------------------------------- */
+.landing-portal-quicklinks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 820px;
+}
+
+@media (max-width: 768px) {
+  .landing-portal-quicklinks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-portal-quicklinks {
+    grid-template-columns: 1fr;
+  }
+}
+
+.portal-quicklink-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.85rem 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.portal-quicklink-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.quicklink-num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+}
+
+.quicklink-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --------------------------------------------------------------------------
+   4. Landing Hero Stage (used on home/index.html)
+   -------------------------------------------------------------------------- */
+.landing-hero-stage {
+  position: relative;
+  padding: 5rem 0 3.5rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+  background: radial-gradient(circle at 60% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 65%);
+}
+
+.landing-hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+@media (max-width: 960px) {
+  .landing-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+    text-align: center;
+  }
+}
+
+.landing-hero-left {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 960px) {
+  .landing-hero-left {
+    align-items: center;
+  }
+}
+
 .landing-hero-subhead {
   font-family: var(--font-display);
   font-size: clamp(1.15rem, 2.2vw, 1.4rem);
@@ -131,7 +320,6 @@
   margin-bottom: 1rem;
 }
 
-/* Description */
 .landing-hero-desc {
   font-size: 1.08rem;
   color: var(--text-secondary);
@@ -140,7 +328,6 @@
   margin: 0 0 1.85rem;
 }
 
-/* Highlight Chips Row */
 .landing-chips-row {
   display: flex;
   flex-wrap: wrap;
@@ -168,7 +355,6 @@
   transform: translateY(-2px);
 }
 
-/* Action Buttons Row */
 .landing-actions-row {
   display: flex;
   flex-wrap: wrap;
@@ -188,7 +374,6 @@
   font-size: 0.92rem;
 }
 
-/* Secondary Social & Direct Links */
 .landing-links-row {
   display: flex;
   align-items: center;
@@ -217,9 +402,7 @@
   color: var(--accent);
 }
 
-/* --------------------------------------------------------------------------
-   4. Right Column: Refined Portrait Composition
-   -------------------------------------------------------------------------- */
+/* Right Column: Refined Portrait */
 .landing-hero-right {
   display: flex;
   justify-content: center;
@@ -279,7 +462,7 @@
   line-height: 1.4;
 }
 
-/* Entrance Keyframes */
+/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;

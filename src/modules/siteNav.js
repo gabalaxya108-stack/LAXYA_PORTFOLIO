@@ -6,7 +6,7 @@ import profile from "../data/profile.js";
 import { initTheme } from "./theme.js";
 
 const NAV_ITEMS = [
-  { id: "home", num: "01", label: "Home", href: "/" },
+  { id: "home", num: "01", label: "Home", href: "/home/" },
   { id: "about", num: "02", label: "About", href: "/about/" },
   { id: "projects", num: "03", label: "Projects", href: "/projects/" },
   { id: "coa", num: "04", label: "COA Lab", href: "/coa/" },
@@ -55,8 +55,8 @@ function renderNavbarCapsule(activePageId) {
 
   headerContainer.innerHTML = `
     <nav class="navbar-capsule" aria-label="Main Navigation">
-      <!-- Monogram / Personal Brand -->
-      <a href="/" class="brand-capsule" aria-label="Home">
+      <!-- Monogram / Personal Brand (Always navigates to Landing Page) -->
+      <a href="/" class="brand-capsule" aria-label="Landing Page" title="Return to Landing Page">
         <span class="brand-badge">LG</span>
         <span style="font-weight: 700; letter-spacing: -0.02em;">${profile.name.toUpperCase()}</span>
       </a>
